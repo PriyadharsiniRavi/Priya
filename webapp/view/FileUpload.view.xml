@@ -1,0 +1,28 @@
+<mvc:View controllerName="CSVtoJSON.CSVtoJSON.controller.FileUpload" xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified"
+	displayBlock="true" xmlns:l="sap.ui.layout" xmlns="sap.m">
+	<Shell id="shell">
+		<Page title="Convert CSV to JSON file" titleLevel="H3">
+			<content>
+				<Title text="Select a file to upload"/>
+				<l:VerticalLayout>
+					<u:FileUploader id="fileUploader" width="30%" name="csvfile" uploadUrl="/csvfile/" tooltip="Upload a CSV file"
+						placeholder="Upload a CSV File" change="handleUpload" fileType="csv" style=""/>
+				</l:VerticalLayout>
+				<Table id="jsonTable" fixedLayout="true" items="{jsonModel>/data}">
+					<columns>
+						<Column><Text text="Sell"/></Column>
+						<Column><Text text="List"/></Column>
+						<Column><Text text="Living"/></Column>
+					</columns>
+					<items>
+						<ColumnListItem>
+							<Text text="{jsonModel>Sell}"/>
+							<Text text="{jsonModel>List}"/>
+							<Text text="{jsonModel>Living}"/>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</content>
+		</Page>
+	</Shell>
+</mvc:View>
